@@ -10,14 +10,12 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
-
-    # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModules.default
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    ./chezmoi.nix
+    ./neovim.nix
+    ./git.nix
+    ./tmux.nix
+    ./zsh.nix
+    ./fonts.nix
   ];
 
   nixpkgs = {
@@ -47,8 +45,8 @@
 
   # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "jasmine";
+    homeDirectory = "/home/jasmine";
   };
 
   # Add stuff for your user as you see fit:
@@ -63,5 +61,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion = "24.05";
 }
