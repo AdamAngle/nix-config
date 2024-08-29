@@ -1,11 +1,6 @@
 { pkgs, ... }: {
   programs.zsh = {
     enable = true;
-    initExtraFirst = ''
-      if [ -f $HOME/.config/zsh/zshrc ]; then
-        source $HOME/.config/zsh/zshrc
-      fi
-    '';
 
     initExtra = ''
       function activate_venv() {
@@ -24,6 +19,10 @@
       . "$HOME/.cargo/env"
       source <(fzf --zsh)
       eval "$(atuin init zsh)"
+    
+      if [ -f $HOME/.config/zsh/zshrc ]; then
+        source $HOME/.config/zsh/zshrc
+      fi
     '';
     autocd = true;
 

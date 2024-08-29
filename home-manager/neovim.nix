@@ -5,6 +5,6 @@
     vimAlias = true;
     defaultEditor = true;
     # package = flake.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-    # extraLuaPackages = ps: [ps.magick];
+    extraLuaPackages = luaPkgs: with luaPkgs; [ fzf-lua ];
   };
 }

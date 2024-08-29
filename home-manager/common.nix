@@ -13,13 +13,21 @@
       atuin
 
       hexyl
-      binutils
       ouch
+      
+      clang
+      rustc
+      cargo
+      go
+      python3
 
       procs
       xcp
 
+      neofetch
+      unzip
       socat
+      less
       tmux
       nurl
       htop
