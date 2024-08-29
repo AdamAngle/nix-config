@@ -9,7 +9,8 @@
   home.packages =
     with pkgs;
     [
-      (pkgs.callPackage ./pkgs/atuin { })
+    #  (pkgs.callPackage ./pkgs/atuin { })
+      atuin
 
       hexyl
       binutils
@@ -47,9 +48,6 @@
       bashInteractive
       ncurses
       coreutils
-
-      self.packages.${pkgs.stdenv.hostPlatform.system}.mergify-gen-config
-      self.packages.${pkgs.stdenv.hostPlatform.system}.merge-when-green
     ];
 
 }
