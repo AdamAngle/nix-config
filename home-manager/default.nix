@@ -51,6 +51,15 @@
     homeDirectory = "/home/jasmine";
   };
 
+  home.packages = with pkgs; [
+    (writeShellScriptBin "hsw" ''
+      home-manager switch --flake .#jasmine@nixos
+    '')
+    (writeShellScriptBin "nsw" ''
+      sudo nixos-rebuild switch --flake .
+    '')
+  ];
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
