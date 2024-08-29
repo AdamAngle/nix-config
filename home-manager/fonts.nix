@@ -2,10 +2,6 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    sf-symbols
-    sf-mono-liga
-    recursive
-    atkinson-hyperlegible
     (nerdfonts.override {
       fonts = [
         "FiraCode"
@@ -26,7 +22,6 @@
         "InconsolataLGC"
       ];
     })
-    sketchybar-app-font
     iosevka
     iosevka-comfy.comfy
     iosevka-comfy.comfy-wide
