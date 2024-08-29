@@ -11,6 +11,7 @@
 
   # You can import other home-manager modules here
   imports = [
+    ./common.nix
     ./chezmoi.nix
     ./neovim.nix
     ./git.nix
