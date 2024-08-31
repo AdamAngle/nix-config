@@ -3,5 +3,6 @@
     lshw
     tmux
     brave
+    make
 ];
 }
