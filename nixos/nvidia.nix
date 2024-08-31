@@ -42,11 +42,6 @@
   };
   hardware.nvidia.prime = {
     # Make sure to use the correct Bus ID values for your system!
-    sync.enable = true;
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
     # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
@@ -54,11 +49,20 @@
 
   specialisation = {
     on-the-go.configuration = {
-      system.nixos.tags = [ "prime-offload" ];
+      system.nixos.tags = [ "on-the-go" ];
       hardware.nvidia = {
         prime.offload.enable = lib.mkForce true;
         prime.offload.enableOffloadCmd = lib.mkForce true;
         prime.sync.enable = lib.mkForce false;
+      };
+    };
+  
+    performance.configuration = {
+      system.nixos.tags = [ "performance" ];
+      hardware.nvidia = {
+        prime.offload.enable = lib.mkForce false;
+        prime.offload.enableOffloadCmd = lib.mkForce false;
+        prime.sync.enable = lib.mkForce true;
       };
     };
   };
