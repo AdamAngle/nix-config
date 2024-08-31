@@ -38,12 +38,28 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
   hardware.nvidia.prime = {
     # Make sure to use the correct Bus ID values for your system!
+    sync.enable = true;
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
     # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
+  };
+
+  specialisation = {
+    on-the-go.configuration = {
+      system.nixos.tags = [ "prime-offload" ];
+      hardware.nvidia = {
+        prime.offload.enable = lib.mkForce true;
+        prime.offload.enableOffloadCmd = lib.mkForce true;
+        prime.sync.enable = lib.mkForce false;
+      };
+    };
   };
 }
